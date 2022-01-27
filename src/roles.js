@@ -1,0 +1,11 @@
+const roles = {
+  SUPER_ADMIN: 'SUPER_ADMIN',
+  // ADMIN: 'ADMIN',
+  OPERATOR: 'OPERATOR',
+  LEADER: 'LEADER',
+  DIRECTOR: 'DIRECTOR',
+  COORDINATOR: 'COORDINATOR',
+  SECRETARY: 'SECRETARY',
+ };
+
+ export default roles;
