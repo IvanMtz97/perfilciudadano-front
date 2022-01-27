@@ -19,14 +19,14 @@ const PostalCodeCreate = () => {
 
   return(
     <> 
-      <h3>Create Postal Code</h3>
+      <h3>Agregar Código Postal</h3>
 
-      <label>Name:</label>
+      <label>Nombre:</label>
       <input type="text" id="name" value={postalCode.name} onChange={handleChange} />
 
       <br /><br />
 
-      <button onClick={onCreate}>Create</button>
+      <button onClick={onCreate}>Agregar</button>
     </>
   )
 };

@@ -18,19 +18,19 @@ const PostalCodeUpdate = () => {
   }
 
   useEffect(() => {
-    //TODO: Add GET request to get postalcode info
+    //TODO: Add GET request to get suburb info
   }, [])
 
   return(
     <> 
-      <h3>Update Postal Code</h3>
+      <h3>Actualizar Código Postal</h3>
 
-      <label>Name:</label>
+      <label>Nombre:</label>
       <input type="text" id="name" value={postalCode.name} onChange={handleChange} />
 
       <br /><br />
 
-      <button onClick={onUpdate}>Update</button>
+      <button onClick={onUpdate}>Actualizar</button>
     </>
   )
 };
