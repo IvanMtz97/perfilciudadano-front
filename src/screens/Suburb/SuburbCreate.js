@@ -46,7 +46,6 @@ const SuburbCreate = () => {
       <label>Nombre:</label>
       <input type="text" id="name" value={suburb.name} onChange={handleChange} />
 
-
       <br /><br />
 
       <button onClick={onCreate}>Agregar</button>

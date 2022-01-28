@@ -24,6 +24,8 @@ import SectionUpdate from "./screens/Section/SectionUpdate";
 import UserList from "./screens/User/UserList";
 import UserCreate from "./screens/User/UserCreate";
 import UserUpdate from "./screens/User/UserUpdate";
+import LeaderList from "./screens/Leader/LeaderList";
+import OperatorList from "./screens/Operator/OperatorList";
 
 function App() {
   return (
@@ -53,6 +55,9 @@ function App() {
           <Route path="user/list" element={<UserList />} />
           <Route path="user/create" element={<UserCreate />} />
           <Route path="user/:id" element={<UserUpdate />} />
+
+          <Route path="leader/list" element={<LeaderList />} />
+          <Route path="operator/list" element={<OperatorList />} />
         </Route>
       </Routes>
     </Router>
