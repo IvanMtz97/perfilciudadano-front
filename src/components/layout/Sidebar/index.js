@@ -14,9 +14,9 @@ const Sidebar = () => {
     >
       <Link to="/dashboard"><p>Dashboard</p></Link>
       <Link to="/structure/list"><p>Estructuras</p></Link>
-      <Link to="//list"><p>Secretarias</p></Link>
-      <Link to="//list"><p>Direcciones</p></Link>
-      <Link to="//list"><p>Coordinadores</p></Link>
+      <Link to="/secretary/list"><p>Secretarias</p></Link>
+      <Link to="/director/list"><p>Direcciones</p></Link>
+      <Link to="/coordinator/list"><p>Coordinadores</p></Link>
       <Link to="/operator/list"><p>Operadores</p></Link>
       <Link to="/leader/list"><p>Lideres</p></Link>
       <Link to="/postalcode/list"><p>Códigos Postales</p></Link>

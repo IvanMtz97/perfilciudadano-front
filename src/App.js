@@ -24,6 +24,12 @@ import SectionUpdate from "./screens/Section/SectionUpdate";
 import UserList from "./screens/User/UserList";
 import UserCreate from "./screens/User/UserCreate";
 import UserUpdate from "./screens/User/UserUpdate";
+import SecretaryCreate from "./screens/Secretary/SecretaryCreate";
+import SecretaryList from "./screens/Secretary/SecretaryList";
+import DirectorCreate from "./screens/Director/DirectorCreate";
+import DirectorList from "./screens/Director/DirectorList";
+import CoordinatorCreate from "./screens/Coordinator/CoordinatorCreate";
+import CoordinatorList from "./screens/Coordinator/CoordinatorList";
 import LeaderList from "./screens/Leader/LeaderList";
 import OperatorList from "./screens/Operator/OperatorList";
 
@@ -55,6 +61,15 @@ function App() {
           <Route path="user/list" element={<UserList />} />
           <Route path="user/create" element={<UserCreate />} />
           <Route path="user/:id" element={<UserUpdate />} />
+
+          <Route path="secretary/list" element={<SecretaryList />} />
+          <Route path="secretary/create" element={<SecretaryCreate />} />
+
+          <Route path="director/list" element={<DirectorList />} />
+          <Route path="director/create" element={<DirectorCreate />} />
+
+          <Route path="coordinator/list" element={<CoordinatorList />} />
+          <Route path="coordinator/create" element={<CoordinatorCreate />} />
 
           <Route path="leader/list" element={<LeaderList />} />
           <Route path="operator/list" element={<OperatorList />} />
