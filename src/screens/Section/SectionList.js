@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Loader from "../../components/Loader";
+import useFetch from "../../hooks/useFetch";
 import sections from "../../dummy/sections";
+import { SECTION_URI } from "../../constants";
 
 const SectionList = () => {
+  const { response } = useFetch("https://jsonplaceholder.typicode.com/todos", {});
+  // const { response } = useFetch(SECTION_URI, {});
+
+  if(!response) return <Loader/>
+
   const onDelete = (id) => {
     //TODO: Add DELETE request to remove section
   };
