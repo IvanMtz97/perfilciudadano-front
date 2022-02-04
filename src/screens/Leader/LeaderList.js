@@ -1,11 +1,22 @@
 import React from "react";
 
+import Error from "../../components/Error";
+import Loader from "../../components/Loader";
+import useFetch from "../../hooks/useFetch";
 import leaders from "../../dummy/leaders";
+import { LEADER_URI } from "../../constants";
 
 const LeaderList = () => {
+  const { response, error } = useFetch("https://jsonplaceholder.typicode.com/todos", {});
+  // const { response, error } = useFetch(LEADER_URI, {});
+
   const onDownloadCSV = () => {
     //TODO: Add download CSV functionality
   }
+
+  if(!response) return <Loader/>;
+
+  if(error) return <Error error={error} />;
 
   return(
     <> 

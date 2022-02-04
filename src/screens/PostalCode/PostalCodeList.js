@@ -1,12 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Error from "../../components/Error";
+import Loader from "../../components/Loader";
+import useFetch from "../../hooks/useFetch";
 import postalcodes from "../../dummy/postalcodes";
+import { POSTAL_CODE_URI } from "../../constants";
 
 const PostalCodeList = () => {
+  const { response, error } = useFetch("https://jsonplaceholder.typicode.com/todos", {});
+  // const { response, error } = useFetch(POSTAL_CODE_URI, {});
+
   const onDelete = (id) => {
     //TODO: Add DELETE request to remove postalcode
   };
+
+  if(!response) return <Loader/>;
+
+  if(error) return <Error error={error} />;
 
   return(
     <> 

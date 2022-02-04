@@ -1,11 +1,22 @@
 import React from "react";
 
+import Error from "../../components/Error";
+import Loader from "../../components/Loader";
+import useFetch from "../../hooks/useFetch";
 import operators from "../../dummy/operators";
+import { OPERATOR_URI } from "../../constants";
 
 const OperatorList = () => {
+  const { response, error } = useFetch("https://jsonplaceholder.typicode.com/todos", {});
+  // const { response, error } = useFetch(OPERATOR_URI, {});
+
   const onDownloadCSV = () => {
     //TODO: Add download CSV functionality
   }
+
+  if(!response) return <Loader/>;
+
+  if(error) return <Error error={error} />;
 
   return(
     <> 

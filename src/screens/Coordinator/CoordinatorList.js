@@ -1,12 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Error from "../../components/Error";
+import Loader from "../../components/Loader";
+import useFetch from "../../hooks/useFetch";
 import coordinators from "../../dummy/coordinators";
+import { COORDINATOR_URI } from "../../constants";
 
 const CoordinatorList = () => {
+  const { response, error } = useFetch("https://jsonplaceholder.typicode.com/todos", {});
+  // const { response, error } = useFetch(COORDINATOR_URI, {});
+
   const onDownloadCSV = () => {
     //TODO: Add download CSV functionality
-  }
+  };
+
+  if(!response) return <Loader/>;
+
+  if(error) return <Error error={error} />;
 
   return(
     <> 
