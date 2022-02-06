@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import Error from "../../components/Error";
 import Loader from "../../components/Loader";
 import useFetch from "../../hooks/useFetch";

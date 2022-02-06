@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { createSection } from "../../services/section";
 
 const SectionCreate = () => {
   const [section, setSection] = useState({
     name: "",
+    type: "Section",
   });
 
   const handleChange = (e) => {
@@ -13,24 +15,31 @@ const SectionCreate = () => {
     }));
   };
 
-  const onCreate = () => {
-    //TODO: Add POST request to create section
-  }
+  const onCreate = async () => {
+    const res = await createSection(section);
+  };
 
-  return(
-    <> 
+  return (
+    <>
       <h3>Agregar Sección</h3>
 
-      <br /><br />
+      <br />
+      <br />
 
       <label>Nombre:</label>
-      <input type="text" id="name" value={section.name} onChange={handleChange} />
+      <input
+        type="text"
+        id="name"
+        value={section.name}
+        onChange={handleChange}
+      />
 
-      <br /><br />
+      <br />
+      <br />
 
       <button onClick={onCreate}>Agregar</button>
     </>
-  )
+  );
 };
 
 export default SectionCreate;

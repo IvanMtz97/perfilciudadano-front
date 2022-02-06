@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-
-import useFetch from "../../hooks/useFetch";
-import { OPTIONS_URI } from "../../constants";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/Loader";
+import useFetch from "../../hooks/useFetch";
+import { OPTIONS_URI } from "../../constants";
+import { updateSection } from "../../services/section";
 
 const SectionUpdate = () => {
-  const { id } = useParams();
-  const URI = `${OPTIONS_URI}/${id}`;
-
-  const { response } = useFetch(URI);
+  const { id: sectionId } = useParams();
+  const { response } = useFetch(`${OPTIONS_URI}/${sectionId}`);
 
   const [section, setSection] = useState({
     name: "",
@@ -17,7 +15,8 @@ const SectionUpdate = () => {
 
   useEffect(() => {
     if (response) {
-      setSection(response);
+      const { name, type } = response;
+      setSection({ name, type });
     }
   }, [response]);
 
@@ -29,9 +28,8 @@ const SectionUpdate = () => {
     }));
   };
 
-  const onUpdate = () => {
-    console.log("toUpdate", section);
-    //TODO: Add PUT request to update section
+  const onUpdate = async () => {
+    const res = await updateSection(sectionId, section);
   };
 
   if (!response) return <Loader />;
