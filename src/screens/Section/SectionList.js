@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Error from "../../components/Error";
-import Loader from "../../components/Loader";
-import useFetch from "../../hooks/useFetch";
-import { OPTIONS_URI } from "../../constants";
+import { deleteOption, getOptionsAsync } from "../../services/option";
 
 const SectionList = () => {
-  const { response, error } = useFetch(`${OPTIONS_URI}?type=section`);
+  const [sections, setSections] = useState([]);
 
-  const onDelete = (id) => {
-    //TODO: Add DELETE request to remove section
+  const onDelete = async (id) => {
+    if (window.confirm("Quieres eliminar la seccion?")) {
+      const res = await deleteOption(id);
+      if (res.status === 200) {
+      }
+    }
   };
 
-  if (!response) return <Loader />;
+  useEffect(() => {
+    const getOptions = async () => {
+      const res = await getOptionsAsync("Section");
+      setSections(res);
+    };
 
-  if (error) return <Error error={error} />;
+    getOptions();
+  }, []);
 
   return (
     <>
@@ -30,7 +36,7 @@ const SectionList = () => {
           </tr>
         </thead>
         <tbody>
-          {response.map(({ id, name }, index) => (
+          {sections.map(({ id, name }, index) => (
             <tr key={index}>
               <td>{id}</td>
               <td>{name}</td>

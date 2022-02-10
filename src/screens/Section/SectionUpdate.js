@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../../components/Loader";
 import useFetch from "../../hooks/useFetch";
 import { OPTIONS_URI } from "../../constants";
-import { updateSection } from "../../services/section";
+import { getOptionAsync, updateOptionAsync } from "../../services/option";
 
 const SectionUpdate = () => {
   const { id: sectionId } = useParams();
@@ -11,14 +11,16 @@ const SectionUpdate = () => {
 
   const [section, setSection] = useState({
     name: "",
+    type: "",
   });
 
   useEffect(() => {
-    if (response) {
-      const { name, type } = response;
-      setSection({ name, type });
-    }
-  }, [response]);
+    const getOption = async () => {
+      const res = await getOptionAsync(sectionId);
+      setSection({ name: res?.name, type: res?.type });
+    };
+    getOption();
+  }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -29,7 +31,7 @@ const SectionUpdate = () => {
   };
 
   const onUpdate = async () => {
-    const res = await updateSection(sectionId, section);
+    const res = await updateOptionAsync(sectionId, section);
   };
 
   if (!response) return <Loader />;

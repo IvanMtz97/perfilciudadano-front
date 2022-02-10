@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createSection } from "../../services/section";
+import { createOptionAsync } from "../../services/option";
 
 const SectionCreate = () => {
   const [section, setSection] = useState({
@@ -16,7 +16,7 @@ const SectionCreate = () => {
   };
 
   const onCreate = async () => {
-    const res = await createSection(section);
+    const res = await createOptionAsync(section);
   };
 
   return (
